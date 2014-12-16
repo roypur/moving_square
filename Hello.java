@@ -10,21 +10,26 @@ import java.awt.event.KeyEvent;
 import javax.swing.KeyStroke;
 
 class Hello  extends JFrame {
-    private TestComp comp;
+    private TestComp comp, box;
     public Hello() {
         
         KeyPress keyIn = new KeyPress();
         
         comp = new TestComp();
-        comp.setPreferredSize(new Dimension(100, 100));
+        comp.setPreferredSize(new Dimension(20, 20));
         comp.addKeyListener(keyIn);
+
+        box = new TestComp();
+        box.setPreferredSize(new Dimension(20, 20));
 
         setSize(300, 400);
         setTitle("hello");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        add(box);
         add(comp);
         comp.setFocusable(true);
-        
+        box.setPos(10,10);
+        comp.setPos(40, 50);
         /*     ActionListener listener = new TimerListener();
         Timer t = new Timer(1000 / 60 , listener);
         t.start();
