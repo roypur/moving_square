@@ -40,15 +40,12 @@ class Hello  extends JFrame {
             
             comp.readKey(key);
         }
-    }
-        
-        public void keyRelease(KeyEvent event) {
-            public void keyReleased(KeyEvent event) {
-                String key = KeyStroke.getKeyStrokeForEvent(event).toString();
-                System.out.println(key);
-                key = key.replace("pressed ", "");
+        public void keyReleased(KeyEvent event) {
+            String key = KeyStroke.getKeyStrokeForEvent(event).toString();
+            System.out.println(key);
+            key = key.replace("released ", "");
             
-                comp.readKey(key);
-            }
+            comp.releaseKey(key);
         }
+    }
 }
